@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>AI Assistant Grocery Shopping - Search Results</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    section {
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    ul {
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .buy-button {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 3px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .color-button {
+      background-color: #337ab7;
+      color: #fff;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 3px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    function changeColor() {
+      const body = document.querySelector('body');
+      const colorButton = document.querySelector('.color-button');
+
+      if (body.style.backgroundColor === 'lightblue') {
+        body.style.backgroundColor = 'white';
+        colorButton.textContent = 'Change Color to Blue';
+      } else {
+        body.style.backgroundColor = 'lightblue';
+        colorButton.textContent = 'Change Color to White';
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <header>
+    <h1>AI Assistant Grocery Shopping</h1>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Cart</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h2>Search Results</h2>
+      {% if results %}
+        <ul>
+          {% for item in results %}
+            <li>Name: {{ item.name }}, Category: {{ item.category }}, Price: {{ item.price }}</li>
+          {% endfor %}
+        </ul>
+        <a href="#" class="buy-button">Buy Now</a>
+      {% else %}
+        <p>No matching items found.</p>
+      {% endif %}
+      <a href="/">Go back</a>
+      <button class="color-button" onclick="changeColor()">Change Color to Blue</button>
+    </section>
+  </main>
+  <footer>
+    <p>© 2023 AI Assistant Grocery Shopping. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+
